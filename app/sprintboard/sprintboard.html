@@ -1,0 +1,19 @@
+<div class="action-bar">
+    <h3 class="sprint-title">{{ sprint.title }} <span class="dates">From the {{ sprint.startDate }} to the {{ sprint.endDate }}</span></h3>
+</div>
+
+<div class="sprintboard">
+    <div class="column" ng-repeat="column in sprint.columns">
+        <div class="header {{ column.color }}-bg">
+            {{ column.title }}
+            <span class="add">+</span>
+        </div>
+
+        <div class="stories">
+            <div class="story" ng-repeat="story in column.stories">
+                <p class="ref">{{ story.ref }}</p>
+                <p class="title">{{ story.title }}</p>
+            </div>
+        </div>
+    </div>
+</div>

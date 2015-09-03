@@ -1,0 +1,98 @@
+/* app css stylesheet */
+
+/* Global */
+body {
+    font-size: 1em;
+    background-color: #414141;
+}
+
+/* HEADER */
+header {
+    background-color: #414141;
+    color: white;
+    padding: 15px;
+}
+
+header .logo {
+    margin: 0;
+    padding: 0;
+}
+
+/* Action bar */
+.action-bar {
+    background-color: #f5f5f5;
+    padding: 15px;
+}
+
+.action-bar .sprint-title {
+    margin: 0;
+    padding: 0;
+    color: #414141;
+}
+
+.action-bar .sprint-title .dates {
+    font-weight: normal;
+    font-size: 0.7em;
+    color: #999;
+}
+
+/* Sprintboard */
+.blue-bg {
+    background-color: #67c2ef;
+}
+
+.red-bg {
+    background-color: #ff5454;
+}
+
+.orange-bg {
+    background-color: #fabb3d;
+}
+
+.green-bg {
+    background-color: #79c447;
+}
+
+.sprintboard {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.sprintboard .column {
+    width: 300px;
+    background-color: #f5f5f5;
+}
+
+.sprintboard .column .header {
+    padding: 10px;
+    color: white;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.sprintboard .column .header .add {
+    float: right;
+    font-size: 1.2em;
+}
+
+.sprintboard .column .story {
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+}
+
+.sprintboard .column .story .ref {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 0.8em;
+    color: #414141;
+}
+
+.sprintboard .column .story .title {
+    margin: 0;
+    padding: 0;
+    font-size: 0.8em;
+    color: #999;
+}
