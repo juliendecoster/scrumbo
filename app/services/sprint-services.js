@@ -15,6 +15,7 @@ angular.module('scrumbo.sprintServices', [])
                     color: 'red',
                     stories: [
                         {
+                            sequence: 1,
                             ref: '#5',
                             title: 'Write some tests',
                         },
@@ -26,10 +27,12 @@ angular.module('scrumbo.sprintServices', [])
                     color: 'blue',
                     stories: [
                         {
+                            sequence: 1,
                             ref: '#4',
                             title: 'Copy Trello',
                         },
                         {
+                            sequence: 2,
                             ref: '#3',
                             title: 'Learn AngularJS',
                         },
@@ -41,6 +44,7 @@ angular.module('scrumbo.sprintServices', [])
                     color: 'orange',
                     stories: [
                         {
+                            sequence: 1,
                             ref: '#6',
                             title: 'Coding Style',
                         },
@@ -52,10 +56,12 @@ angular.module('scrumbo.sprintServices', [])
                     color: 'green',
                     stories: [
                         {
+                            sequence: 1,
                             ref: '#1',
                             title: 'Read the specs',
                         },
                         {
+                            sequence: 2,
                             ref: '#2',
                             title: 'Book the review',
                         },
@@ -78,5 +84,10 @@ angular.module('scrumbo.sprintServices', [])
                 // Simulate a latency
                 return $http.get('https://cors-test.appspot.com/test');
             },
+
+            moveStoryToColumn: function(story, column) {
+                // Simulate a latency
+                return $http.get('https://cors-test.appspot.com/test');
+            }
         };
     }]);
