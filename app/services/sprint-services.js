@@ -2,8 +2,8 @@
 
 angular.module('scrumbo.sprintServices', [])
 
-.factory('Sprint', ['$resource', 
-    function($resource) {
+.factory('Sprint', ['$resource', '$http', 
+    function($resource, $http) {
         var data = {
             title: 'Coding Exercice',
             startDate: '2nd of September',
@@ -69,8 +69,14 @@ angular.module('scrumbo.sprintServices', [])
                 return data;
             },
 
+            saveStory: function(story) {
+                // Simulate a latency
+                return $http.get('https://cors-test.appspot.com/test');
+            },
+
             deleteStory: function(story) {
-                return true;
+                // Simulate a latency
+                return $http.get('https://cors-test.appspot.com/test');
             },
         };
     }]);

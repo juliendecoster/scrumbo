@@ -17,7 +17,7 @@
                     <p class="title">{{ story.title }}</p>
                 </div>
 
-                <form ng-show="story.editing" ng-submit="story.editing = false">
+                <form ng-show="story.editing" ng-submit="saveStory(story)">
                     <textarea ng-model="story.title" focus="story.editing"></textarea>
                     <button class="green-bg" type="submit">Save</button> 
                     or
