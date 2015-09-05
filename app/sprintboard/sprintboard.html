@@ -6,7 +6,6 @@
     <div class="column" ng-repeat="column in sprint.columns">
         <div class="header {{ column.color }}-bg">
             {{ column.stories.length}} {{ column.title }}
-            <span class="add" ng-click="addStory(column)">+</span>
         </div>
         
         <div class="dropzone" drop="column" drop-style="over"></div>
@@ -31,5 +30,7 @@
                 <div class="dropzone" drop="column" drop-style="over" drop-position-after="story"></div>
             </div>
         </div>
+
+        <p class="add" ng-click="addStory(column)">Add a story</p>
     </div>
 </div>

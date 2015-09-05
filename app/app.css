@@ -86,10 +86,11 @@ header .logo {
     font-weight: bold;
 }
 
-.sprintboard .column .header .add {
-    float: right;
-    font-size: 1.2em;
+.sprintboard .column .add {
+    font-size: 0.8em;
     cursor: pointer;
+    color: #999;
+    margin: 10px;
 }
 
 .sprintboard .column .story {

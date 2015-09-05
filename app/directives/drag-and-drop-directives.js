@@ -5,6 +5,9 @@ angular.module('scrumbo')
 
     // Define actions for events
     function dragStart(event, element, dragStyle) {
+        // We wait a little bit so the browser has
+        // the time to copy the original element
+        // before we hide it
         $timeout(function() {
             element.addClass(dragStyle);
         }, 100);
