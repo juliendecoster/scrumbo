@@ -3,8 +3,10 @@
 // Declare app level module which depends on views, and components
 angular.module('scrumbo', [
   'ngRoute',
+  'ngResource',
   'scrumbo.sprintboard',
   'scrumbo.sprintServices',
+  // 'focus',
   // 'myApp.view2',
   // 'myApp.version'
 ]).

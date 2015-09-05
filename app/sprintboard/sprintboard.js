@@ -11,4 +11,17 @@ angular.module('scrumbo.sprintboard', ['ngRoute'])
 
 .controller('SprintboardCtrl', ['$scope', 'Sprint', function($scope, Sprint) {
     $scope.sprint = Sprint.getAll();
+
+    $scope.addStory = function(column) {
+        column.stories.push({ ref: '#8', title: '', editing: true });
+    };
+
+    $scope.deleteStory = function(story) {
+        angular.forEach($scope.sprint.columns, function(column) {
+            var index = column.stories.indexOf(story);
+            if (index > -1) {
+                column.stories.splice(index, 1);
+            }
+        });
+    };
 }]);

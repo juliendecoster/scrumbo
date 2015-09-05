@@ -2,7 +2,7 @@
 
 angular.module('scrumbo.sprintServices', [])
 
-.factory('Sprint', [ 
+.factory('Sprint', ['$resource', 
     function($resource) {
         var data = {
             title: 'Coding Exercice',
@@ -10,7 +10,8 @@ angular.module('scrumbo.sprintServices', [])
             endDate: '9th of September',
             columns: [
                 {
-                    title: 'To Do',
+                    id: 1,
+                    title: 'In backlog',
                     color: 'red',
                     stories: [
                         {
@@ -20,6 +21,7 @@ angular.module('scrumbo.sprintServices', [])
                     ]
                 },
                 {
+                    id: 2,
                     title: 'In Progress',
                     color: 'blue',
                     stories: [
@@ -34,7 +36,8 @@ angular.module('scrumbo.sprintServices', [])
                     ]
                 },
                 {
-                    title: 'Reviewing',
+                    id: 3,
+                    title: 'In review',
                     color: 'orange',
                     stories: [
                         {
@@ -44,6 +47,7 @@ angular.module('scrumbo.sprintServices', [])
                     ]
                 },
                 {
+                    id: 4,
                     title: 'Done',
                     color: 'green',
                     stories: [
@@ -63,6 +67,10 @@ angular.module('scrumbo.sprintServices', [])
         return {
             getAll: function() {
                 return data;
+            },
+
+            deleteStory: function(story) {
+                return true;
             },
         };
     }]);

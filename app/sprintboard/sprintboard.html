@@ -5,14 +5,24 @@
 <div class="sprintboard">
     <div class="column" ng-repeat="column in sprint.columns">
         <div class="header {{ column.color }}-bg">
-            {{ column.title }}
-            <span class="add">+</span>
+            {{ column.stories.length}} {{ column.title }}
+            <span class="add" ng-click="addStory(column)">+</span>
         </div>
 
         <div class="stories">
             <div class="story" ng-repeat="story in column.stories">
-                <p class="ref">{{ story.ref }}</p>
-                <p class="title">{{ story.title }}</p>
+                <div ng-hide="story.editing">
+                    <a class="edit" ng-click="story.editing = true">edit</a>
+                    <p class="ref">{{ story.ref }}</p>
+                    <p class="title">{{ story.title }}</p>
+                </div>
+
+                <form ng-show="story.editing" ng-submit="story.editing = false">
+                    <textarea ng-model="story.title" focus="story.editing"></textarea>
+                    <button class="green-bg" type="submit">Save</button> 
+                    or
+                    <a ng-click="deleteStory(story)">delete</a>
+                </form>
             </div>
         </div>
     </div>
