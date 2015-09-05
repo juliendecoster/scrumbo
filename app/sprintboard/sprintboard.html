@@ -3,8 +3,9 @@
 </div>
 
 <div class="sprintboard">
-    <div class="column" ng-repeat="column in sprint.columns">
-        <div class="header {{ column.color }}-bg">
+    <div ng-repeat="column in sprint.columns">
+        <div column data-set="column"></div>
+        <!-- <div class="header {{ column.color }}-bg">
             {{ column.stories.length}} {{ column.title }}
         </div>
         
@@ -17,6 +18,6 @@
             </div>
         </div>
 
-        <p class="add" ng-click="addStory(column)">Add a story</p>
+        <p class="add" ng-click="addStory(column)">Add a story</p> -->
     </div>
 </div>

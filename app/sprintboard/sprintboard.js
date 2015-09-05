@@ -21,23 +21,6 @@ angular.module('scrumbo.sprintboard', ['ngRoute'])
             });
     };
 
-    $scope.addStory = function(column) {
-        // Add a blank story in edit mode to the column
-        column.stories.push({ ref: undefined, title: '', editing: true });
-    };
-
-    $scope.deleteStory = function(story) {
-        Sprint.deleteStory(story)
-        .success(function() {
-            removeStoryFromColumn(story);
-        })
-        .error(function() {
-            // TODO : Show a nice error to the user
-            console.log('Impossible to delete the story');
-        });
-        
-    };
-
     $scope.moveStoryToColumn = function(story, column, afterStory) {
         // We do the operation before having the feedback
         // from the server to be faster.

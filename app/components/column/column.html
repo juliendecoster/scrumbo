@@ -1,0 +1,16 @@
+<div class="column">
+    <div class="header {{ column.color }}-bg">
+        {{ column.stories.length}} {{ column.title }}
+    </div>
+
+    <div class="dropzone" drop="column" drop-style="over"></div>
+
+    <div class="stories">
+        <div ng-repeat="story in column.stories">
+            <div story data-set="story" drag="story" drag-style="drag-story"></div>
+            <div class="dropzone" drop="column" drop-style="over" drop-position-after="story"></div>
+        </div>
+    </div>
+
+    <p class="add" ng-click="addStory(column)">Add a story</p>
+</div>
