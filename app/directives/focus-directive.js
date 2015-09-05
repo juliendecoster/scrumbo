@@ -11,6 +11,6 @@ angular.module('scrumbo').directive('focus', function($timeout, $parse) {
                     });
                 }
             });
-        }
-    }
+        },
+    };
 });

@@ -2,8 +2,8 @@
 
 angular.module('scrumbo.sprintServices', [])
 
-.factory('Sprint', ['$resource', '$http', 
-    function($resource, $http) {
+.factory('Sprint', ['$resource', '$http', '$q',
+    function($resource, $http, $q) {
         var data = {
             title: 'Coding Exercice',
             startDate: '2nd of September',
@@ -70,14 +70,30 @@ angular.module('scrumbo.sprintServices', [])
             ],
         };
 
+        var currentStoryId = 6;
+        var getNextStoryId = function() {
+            currentStoryId += 1;
+            return currentStoryId;
+        }
+
         return {
             getAll: function() {
                 return data;
             },
 
             saveStory: function(story) {
+                var deferred = $q.defer();
+
                 // Simulate a latency
-                return $http.get('https://cors-test.appspot.com/test');
+                $http.get('https://cors-test.appspot.com/test')
+                    .success(function(data, status) {
+                        deferred.resolve(getNextStoryId());
+                    })
+                    .error(function(data, status) {
+                        deferred.reject(status);
+                    });
+
+                return deferred.promise;
             },
 
             deleteStory: function(story) {

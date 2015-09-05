@@ -12,15 +12,6 @@ angular.module('scrumbo.sprintboard', ['ngRoute'])
 .controller('SprintboardCtrl', ['$rootScope', '$scope', 'Sprint', function($rootScope, $scope, Sprint) {
     $scope.sprint = Sprint.getAll();
 
-    // Simulate the next id in the database
-    var currentStoryId = 6;
-    var getNextStoryId = function () {
-      currentStoryId += 1;
-      return currentStoryId;
-    }
-
-    // TODO : Extract the story in a component directive
-
     var removeStoryFromColumn = function(story) {
         angular.forEach($scope.sprint.columns, function(column) {
                 var index = column.stories.indexOf(story);
@@ -33,18 +24,6 @@ angular.module('scrumbo.sprintboard', ['ngRoute'])
     $scope.addStory = function(column) {
         // Add a blank story in edit mode to the column
         column.stories.push({ ref: undefined, title: '', editing: true });
-    };
-
-    $scope.saveStory = function(story) {
-        Sprint.saveStory(story)
-        .success(function(story_id) {
-            story.ref = '#' + getNextStoryId();
-            story.editing = false;
-        })
-        .error(function() {
-            // TODO : Show a nice error to the user
-            console.log('Impossible to save the story');
-        });
     };
 
     $scope.deleteStory = function(story) {

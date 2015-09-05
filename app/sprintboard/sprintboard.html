@@ -12,21 +12,7 @@
 
         <div class="stories">
             <div ng-repeat="story in column.stories">
-                <div class="story" drag="story" drag-style="drag-story">
-                    <div ng-hide="story.editing">
-                        <a class="edit" ng-click="story.editing = true">edit</a>
-                        <p class="ref">{{ story.ref }}</p>
-                        <p class="title">{{ story.title }}</p>
-                    </div>
-
-                    <form ng-show="story.editing" ng-submit="saveStory(story)">
-                        <textarea ng-model="story.title" focus="story.editing"></textarea>
-                        <button class="green-bg" type="submit">Save</button> 
-                        or
-                        <a ng-click="deleteStory(story)">delete</a>
-                    </form>
-                </div>
-
+                <div story data-set="story" drag="story" drag-style="drag-story"></div>
                 <div class="dropzone" drop="column" drop-style="over" drop-position-after="story"></div>
             </div>
         </div>

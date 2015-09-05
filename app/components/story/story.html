@@ -1,0 +1,14 @@
+<div class="story">
+    <div ng-hide="ctrl.story.editing">
+        <a class="edit" ng-click="ctrl.story.editing = true">edit</a>
+        <p class="ref">{{ ctrl.story.ref }}</p>
+        <p class="title">{{ ctrl.story.title }}</p>
+    </div>
+
+    <form ng-show="ctrl.story.editing" ng-submit="ctrl.saveStory(ctrl.story)">
+        <textarea ng-model="ctrl.story.title" focus="ctrl.story.editing"></textarea>
+        <button class="green-bg" type="submit">Save</button> 
+        or
+        <a ng-click="$parent.deleteStory(ctrl.story)">delete</a>
+    </form>
+</div>
