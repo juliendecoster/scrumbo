@@ -1,0 +1,18 @@
+<div class="action-bar">
+    <h3 class="sprint-title">My Sprints Planner <span class="dates"></span></h3>
+</div>
+
+<div class="planningboard">
+
+    <div class="backlog">
+        <div column data-set="backlog"></div>
+    </div>
+
+    <a ng-repeat="sprint in sprints" ng-href="#sprintboard/{{ sprint.id }}">
+        <div class="sprint orange-bg">
+            <p class="title">{{ sprint.title }}</p>
+            <p class="dates">From {{ sprint.startDate }} to {{ sprint.endDate }}</p>
+            <p><span class="backlog">{{ sprint.backlog_count }}</span> stories in backlog</p>
+        </div>
+    </a>
+</div>

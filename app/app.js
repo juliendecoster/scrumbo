@@ -5,11 +5,12 @@ angular.module('scrumbo', [
   'ngRoute',
   'ngResource',
   'scrumbo.sprintboard',
+  'scrumbo.planningboard',
   'scrumbo.sprintServices',
   // 'focus',
   // 'myApp.view2',
   // 'myApp.version'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/sprintboard'});
+  $routeProvider.otherwise({redirectTo: '/planningboard'});
 }]);

@@ -11,11 +11,51 @@ header {
     background-color: #414141;
     color: white;
     padding: 15px;
+    height: 40px;
 }
 
 header .logo {
     margin: 0;
     padding: 0;
+    float: left;
+}
+
+.blue-bg {
+    background-color: #67c2ef;
+}
+
+.red-bg {
+    background-color: #ff5454;
+}
+
+.orange-bg {
+    background-color: #fabb3d;
+}
+
+.green-bg {
+    background-color: #79c447;
+}
+
+/* Menu */
+.menu {
+    float: left;
+    margin-top: 10px;
+}
+
+.menu li {
+    float: left;
+    list-style-type: none;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.menu li a:hover {
+    color: #fabb3d;
+    border-bottom: 2px solid white;
 }
 
 /* Action bar */
@@ -36,79 +76,93 @@ header .logo {
     color: #999;
 }
 
-/* Sprintboard */
-.blue-bg {
-    background-color: #67c2ef;
+/* Sprintplanning */
+.planningboard {
 }
 
-.red-bg {
-    background-color: #ff5454;
-}
-
-.orange-bg {
-    background-color: #fabb3d;
-}
-
-.green-bg {
-    background-color: #79c447;
-}
-
-.sprintboard {
+.sprint {
     margin-top: 20px;
+    margin-left: 20px;
+    padding: 20px;
+    float: left;
+    width: 300px;
+    height: 140px;
+    color: white;
 }
 
-.sprintboard .column {
+.sprint .title {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.sprint .dates {
+    margin-top: 0;
+    font-size: 0.8em
+}
+
+.sprint .backlog {
+    font-size: 4em;
+}
+
+/* Sprintboard */
+.sprintboard {
+}
+
+.dropzone.over {
+    background-color: #333;
+    height: 50px;
+}
+
+.dropzone {
+    margin: 5px 10px;
+    height: 5px;
+    border-radius: 5px;
+}
+
+/* Column */
+.column {
+    margin-top: 20px;
     float: left;
     margin-left: 20px;
     width: 270px;
     background-color: #f5f5f5;
 }
 
-.sprintboard .column.column-drop {
+.column.column-drop {
     background-color: #333;
 }
 
-.sprintboard .dropzone.over {
-    background-color: #333;
-    height: 50px;
-}
-
-.sprintboard .dropzone {
-    margin: 5px 10px;
-    height: 5px;
-    border-radius: 5px;
-}
-
-.sprintboard .column .header {
+.column .header {
     padding: 10px;
     color: white;
     font-size: 0.8em;
     font-weight: bold;
 }
 
-.sprintboard .column .add {
+.column .add {
     font-size: 0.8em;
     cursor: pointer;
     color: #999;
     margin: 10px;
 }
 
-.sprintboard .column .story {
+.column .story {
     margin: 0 10px;
     padding: 10px;
     background-color: white;
     box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.1);
 }
 
-.sprintboard .column .story.drag-story {
+.column .drag-story {
     display: none;
 }
 
-.sprintboard .column .story:hover .edit {
+.column .story:hover .edit {
     opacity: 1;
 }
 
-.sprintboard .column .story .ref {
+.column .story .ref {
     margin: 0;
     padding: 0;
     font-weight: bold;
@@ -116,14 +170,14 @@ header .logo {
     color: #414141;
 }
 
-.sprintboard .column .story .title {
+.column .story .title {
     margin: 0;
     padding: 0;
     font-size: 0.8em;
     color: #999;
 }
 
-.sprintboard .column .story .edit {
+.column .story .edit {
     float: right;
     opacity: 0;
     font-size: 0.7em;
@@ -131,19 +185,19 @@ header .logo {
     cursor: pointer;
 }
 
-.sprintboard .column .story form {
+.column .story form {
     color: #999;
     font-size: 0.8em;
 }
 
-.sprintboard .column .story form textarea {
+.column .story form textarea {
     width: 100%;
     height: 60px;
     border: 1px solid #eee;
     color: #999;
 }
 
-.sprintboard .column .story form button {
+.column .story form button {
     display: inline-block;
     padding: 5px 10px;
     border: 1px solid #18ab29;
@@ -152,7 +206,7 @@ header .logo {
     border-radius: 5px;
 }
 
-.sprintboard .column .story form a {
+.column .story form a {
     cursor: pointer;
     color: #999;
     text-decoration: none;
