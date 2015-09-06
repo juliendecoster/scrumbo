@@ -1,5 +1,5 @@
-<div class="sprint orange-bg">
-    <p class="title">{{ ctrl.sprint.title }}</p>
-    <p class="dates">From {{ ctrl.sprint.startDate }} to {{ ctrl.sprint.endDate }}</p>
-    <p><span class="backlog">{{ ctrl.sprint.backlog_count }}</span> stories in backlog</p>
+<div class="sprint orange-bg"  drop="sprint" drop-style="sprint-drop">
+    <p class="title">{{ sprint.title }}</p>
+    <p class="dates">From {{ sprint.startDate }} to {{ sprint.endDate }}</p>
+    <p><span class="backlog">{{ backlog_count() }}</span> stories in backlog</p>
 </div>

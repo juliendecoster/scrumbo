@@ -41,7 +41,7 @@ angular.module('scrumbo').directive('column', function(Sprint) {
                 
             };
 
-            $scope.moveStoryToColumn = function(story, column, afterStory) {
+            var moveStoryToColumn = function(story, column, afterStory) {
                 // We do the operation before having the feedback
                 // from the server to be faster.
                 // We make a copy of the sprint state just in case the call fail
@@ -51,7 +51,7 @@ angular.module('scrumbo').directive('column', function(Sprint) {
                     removeStoryFromColumn(story);
                 }
 
-                if ($scope.column == column) {
+                if (angular.equals($scope.column, column)) {
                     // Add the story to the dropped column at the right place
                     if (afterStory) {
                         var index = $scope.column.stories.indexOf(afterStory);
@@ -74,8 +74,14 @@ angular.module('scrumbo').directive('column', function(Sprint) {
             };
 
             // Drag and drop event
-            $rootScope.$on('dropEvent', function(event, dragged, dropped, afterStory) {
-                $scope.moveStoryToColumn(dragged, dropped, afterStory);
+            var dropListener = $rootScope.$on('dropEvent', function(event, dragged, dropped, afterStory) {
+                moveStoryToColumn(dragged, dropped, afterStory);
+            });
+
+            // Need to destroy the listener, otherwise the drag and drop
+            // will copy the story several times
+            $scope.$on('$destroy', function () { 
+                dropListener();
             });
         },
     };

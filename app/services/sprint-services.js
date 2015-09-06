@@ -34,7 +34,6 @@ angular.module('scrumbo.sprintServices', [])
                 title: 'Week 7',
                 startDate: '2nd of Sept.',
                 endDate: '9th of Sept.',
-                backlog_count: 4,
                 columns: [
                     {
                         id: 1,
@@ -55,12 +54,12 @@ angular.module('scrumbo.sprintServices', [])
                         stories: [
                             {
                                 sequence: 1,
-                                ref: '#4',
+                                ref: '#6',
                                 title: 'Copy Trello',
                             },
                             {
                                 sequence: 2,
-                                ref: '#3',
+                                ref: '#7',
                                 title: 'Learn AngularJS',
                             },
                         ]
@@ -72,7 +71,7 @@ angular.module('scrumbo.sprintServices', [])
                         stories: [
                             {
                                 sequence: 1,
-                                ref: '#6',
+                                ref: '#8',
                                 title: 'Coding Style',
                             },
                         ]
@@ -84,12 +83,12 @@ angular.module('scrumbo.sprintServices', [])
                         stories: [
                             {
                                 sequence: 1,
-                                ref: '#1',
+                                ref: '#9',
                                 title: 'Read the specs',
                             },
                             {
                                 sequence: 2,
-                                ref: '#2',
+                                ref: '#10',
                                 title: 'Book the review',
                             },
                         ]
@@ -101,7 +100,6 @@ angular.module('scrumbo.sprintServices', [])
                 title: 'Week 8',
                 startDate: '10th of Sept.',
                 endDate: '17th of Sept.',
-                backlog_count: 2,
                 columns: [
                     {
                         id: 1,
@@ -110,7 +108,7 @@ angular.module('scrumbo.sprintServices', [])
                         stories: [
                             {
                                 sequence: 1,
-                                ref: '#5',
+                                ref: '#11',
                                 title: 'Write some tests',
                             },
                         ]
@@ -122,12 +120,12 @@ angular.module('scrumbo.sprintServices', [])
                         stories: [
                             {
                                 sequence: 1,
-                                ref: '#4',
+                                ref: '#12',
                                 title: 'Copy Trello',
                             },
                             {
                                 sequence: 2,
-                                ref: '#3',
+                                ref: '#13',
                                 title: 'Learn AngularJS',
                             },
                         ]
@@ -139,7 +137,7 @@ angular.module('scrumbo.sprintServices', [])
                         stories: [
                             {
                                 sequence: 1,
-                                ref: '#6',
+                                ref: '#14',
                                 title: 'Coding Style',
                             },
                         ]
@@ -151,12 +149,12 @@ angular.module('scrumbo.sprintServices', [])
                         stories: [
                             {
                                 sequence: 1,
-                                ref: '#1',
+                                ref: '#15',
                                 title: 'Read the specs',
                             },
                             {
                                 sequence: 2,
-                                ref: '#2',
+                                ref: '#16',
                                 title: 'Book the review',
                             },
                         ]
@@ -168,7 +166,6 @@ angular.module('scrumbo.sprintServices', [])
                 title: 'Week 9',
                 startDate: '18th of Sept.',
                 endDate: '25th of Sept.',
-                backlog_count: 1,
                 columns: [
                     {
                         id: 1,
@@ -177,7 +174,7 @@ angular.module('scrumbo.sprintServices', [])
                         stories: [
                             {
                                 sequence: 1,
-                                ref: '#5',
+                                ref: '#17',
                                 title: 'Write some tests',
                             },
                         ]
@@ -189,12 +186,12 @@ angular.module('scrumbo.sprintServices', [])
                         stories: [
                             {
                                 sequence: 1,
-                                ref: '#4',
+                                ref: '#18',
                                 title: 'Copy Trello',
                             },
                             {
                                 sequence: 2,
-                                ref: '#3',
+                                ref: '#19',
                                 title: 'Learn AngularJS',
                             },
                         ]
@@ -206,7 +203,7 @@ angular.module('scrumbo.sprintServices', [])
                         stories: [
                             {
                                 sequence: 1,
-                                ref: '#6',
+                                ref: '#20',
                                 title: 'Coding Style',
                             },
                         ]
@@ -218,12 +215,12 @@ angular.module('scrumbo.sprintServices', [])
                         stories: [
                             {
                                 sequence: 1,
-                                ref: '#1',
+                                ref: '#21',
                                 title: 'Read the specs',
                             },
                             {
                                 sequence: 2,
-                                ref: '#2',
+                                ref: '#22',
                                 title: 'Book the review',
                             },
                         ]
@@ -232,7 +229,7 @@ angular.module('scrumbo.sprintServices', [])
             },
         ];
 
-        var currentStoryId = 6;
+        var currentStoryId = 22;
         var getNextStoryId = function() {
             currentStoryId += 1;
             return currentStoryId;
@@ -287,8 +284,24 @@ angular.module('scrumbo.sprintServices', [])
                 return $http.get('https://cors-test.appspot.com/test');
             },
 
+            moveStoryToSprint: function(story, column) {
+                // Simulate a latency
+                return $http.get('https://cors-test.appspot.com/test');
+            },
+
             getBacklog: function() {
-                return backlog;
+                var deferred = $q.defer();
+
+                // Simulate a latency
+                $http.get('https://cors-test.appspot.com/test')
+                    .success(function(data, status) {
+                        deferred.resolve(backlog);
+                    })
+                    .error(function(data, status) {
+                        deferred.reject(status);
+                    });
+
+                return deferred.promise;
             },
         };
     }]);

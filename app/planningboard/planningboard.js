@@ -12,9 +12,16 @@ angular.module('scrumbo.planningboard', ['ngRoute'])
 .controller('PlanningboardCtrl', ['$scope', 'Sprint', function($scope, Sprint) {
     $scope.sprints = Sprint.fetchAll();
 
-    $scope.backlog = {
-        title: 'Main Backlog Stories',
-        color: 'red',
-        stories: Sprint.getBacklog(),
-    };
+    Sprint.getBacklog().then(
+        function(backlog) {
+            $scope.backlog = {
+                title: 'stories in main backlog',
+                color: 'red',
+                stories: backlog,
+            };
+        },
+        function(reason) {
+            // TODO : Show a nice error to the user
+            console.log('Impossible to get the story');
+        });
 }]);
