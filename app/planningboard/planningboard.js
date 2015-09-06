@@ -13,7 +13,7 @@ angular.module('scrumbo.planningboard', ['ngRoute'])
     $scope.sprints = Sprint.fetchAll();
 
     $scope.backlog = {
-        title: 'Backlog',
+        title: 'Main Backlog Stories',
         color: 'red',
         stories: Sprint.getBacklog(),
     };
