@@ -9,9 +9,6 @@ angular.module('scrumbo', [
   'scrumbo.sprintServices',
   'scrumbo.storyServices',
   'scrumbo.backlogServices',
-  // 'focus',
-  // 'myApp.view2',
-  // 'myApp.version'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/planningboard'});
