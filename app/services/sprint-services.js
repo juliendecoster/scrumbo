@@ -281,5 +281,9 @@ angular.module('scrumbo.sprintServices', [])
                 newSprint.id = getNextStoryId();
                 return this.fakeCall(newSprint);
             },
+
+            archiveSprint: function() {
+                return this.fakeCall(true);
+            },
         };
     }]);

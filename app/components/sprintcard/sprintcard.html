@@ -11,7 +11,7 @@
 <!-- Editing mode -->
 <div ng-show="sprint.creating">
     <div class="sprint white-bg">
-        <a href="#" class="archive">X</a>
+        <a class="archive" ng-click="$parent.archiveSprint(sprint)">X</a>
         <form ng-submit="createSprint()">
             <input type="text" class="mb20" ng-model="sprint.title" focus="sprint.creating">
             <input type="text" class="mb20" ng-model="sprint.startDate">

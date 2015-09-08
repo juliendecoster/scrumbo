@@ -44,4 +44,16 @@ function($scope, Sprint, Backlog) {
                 console.log('Impossible to get the story:' + reason);
             });
     };
+
+    $scope.archiveSprint = function(sprint) {
+        Sprint.archiveSprint(sprint.id).then(
+            function(result) {
+                var index = $scope.sprints.indexOf(sprint);
+                $scope.sprints.splice(index, 1);
+            },
+            function(reason) {
+                // TODO : Show a nice error to the user
+                console.log('Impossible to archive the sprint:' + reason);
+            });
+    };
 }]);
