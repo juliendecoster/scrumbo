@@ -9,10 +9,18 @@ angular.module('scrumbo.planningboard', ['ngRoute'])
   });
 }])
 
-.controller('PlanningboardCtrl', ['$scope', 'Sprint', function($scope, Sprint) {
-    $scope.sprints = Sprint.fetchAll();
+.controller('PlanningboardCtrl', ['$scope', 'Sprint', 'Backlog',
+function($scope, Sprint, Backlog) {
+    Sprint.fetchAll().then(
+        function(sprints) {
+            $scope.sprints = sprints;
+        },
+        function(reason) {
+            // TODO : Show a nice error to the user
+            console.log('Impossible to get the story:' + reason);
+        });
 
-    Sprint.getBacklog().then(
+    Backlog.getBacklog().then(
         function(backlog) {
             $scope.backlog = {
                 title: 'stories in main backlog',
@@ -22,12 +30,18 @@ angular.module('scrumbo.planningboard', ['ngRoute'])
         },
         function(reason) {
             // TODO : Show a nice error to the user
-            console.log('Impossible to get the story');
+            console.log('Impossible to get the story:' + reason);
         });
 
     $scope.newSprint = function() {
-        var newSprint = Sprint.newSprint();
-        newSprint.creating = true;
-        $scope.sprints.splice($scope.sprints.length, 0, newSprint);
+        Sprint.newSprint().then(
+            function(newSprint) {
+                newSprint.creating = true;
+                $scope.sprints.splice($scope.sprints.length, 0, newSprint);
+            },
+            function(reason) {
+                // TODO : Show a nice error to the user
+                console.log('Impossible to get the story:' + reason);
+            });
     };
 }]);

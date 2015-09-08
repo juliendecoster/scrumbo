@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('scrumbo').directive('sprintcard', function(Sprint) {
+angular.module('scrumbo').directive('sprintcard', function(Story) {
 
     return {
         templateUrl: 'components/sprintcard/sprintcard.html',
@@ -22,15 +22,15 @@ angular.module('scrumbo').directive('sprintcard', function(Sprint) {
                     });
                     
                     // Finally do the call to the server
-                    Sprint.moveStoryToSprint(story, sprint)
-                    .success(function() {
-                        
-                    })
-                    .error(function() {
-                        // TODO : Show a nice error to the user
-                        $scope.sprint = sprintCopy; // Restore the backup state
-                        console.log('Impossible to save the story');
-                    });
+                    Story.moveStoryToSprint(story, sprint).then(
+                        function() {
+
+                        },
+                        function(reason) {
+                            // TODO : Show a nice error to the user
+                            $scope.sprint = sprintCopy; // Restore the backup state
+                            console.log('Impossible to save the story:' + reason);
+                        });
                 }
             };
 

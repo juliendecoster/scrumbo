@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('scrumbo').directive('story', function(Sprint) {
+angular.module('scrumbo').directive('story', function(Story) {
 
     return {
         templateUrl: 'components/story/story.html',
@@ -11,7 +11,7 @@ angular.module('scrumbo').directive('story', function(Sprint) {
         controllerAs: 'ctrl',
         controller: function() {
             this.saveStory = function(story) {
-                Sprint.saveStory(story).then(function(story_id) {
+                Story.saveStory(story).then(function(story_id) {
                     if (story.ref == undefined) {
                         story.ref = '#' + story_id;
                     }

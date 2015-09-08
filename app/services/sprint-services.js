@@ -2,32 +2,8 @@
 
 angular.module('scrumbo.sprintServices', [])
 
-.factory('Sprint', ['$resource', '$http', '$q',
-    function($resource, $http, $q) {
-
-        var backlog = [
-            {
-                sequence: 1,
-                ref: '#1',
-                title: 'Write some tests 1',
-            },
-            {
-                sequence: 2,
-                ref: '#2',
-                title: 'Write some tests 2',
-            },
-            {
-                sequence: 3,
-                ref: '#3',
-                title: 'Write some tests 3',
-            },
-            {
-                sequence: 4,
-                ref: '#4',
-                title: 'Write some tests 4',
-            },
-        ];
-
+.factory('Sprint', ['$http', '$q',
+    function($http, $q) {
         var sprints = [
             {
                 id: 1,
@@ -229,79 +205,81 @@ angular.module('scrumbo.sprintServices', [])
             },
         ];
 
-        var currentStoryId = 22;
+        var newSprintSkeleton = {
+            id: 5,
+            title: 'No Title',
+            startDate: 'No start date',
+            endDate: 'No end date',
+            columns: [
+                {
+                    id: 1,
+                    title: 'In backlog',
+                    color: 'red',
+                    stories: [],
+                },
+                {
+                    id: 2,
+                    title: 'In Progress',
+                    color: 'blue',
+                    stories: [],
+                },
+                {
+                    id: 3,
+                    title: 'In review',
+                    color: 'orange',
+                    stories: [],
+                },
+                {
+                    id: 4,
+                    title: 'Done',
+                    color: 'green',
+                    stories: [],
+                },
+            ],
+        };
+
+        var currentStoryId = 4;
         var getNextStoryId = function() {
             currentStoryId += 1;
             return currentStoryId;
         }
 
         return {
+            fakeCall: function(result) {
+                var deferred = $q.defer();
+
+                // Simulate a latency
+                $http.get('https://cors-test.appspot.com/test')
+                    .success(function(data, status) {
+                        deferred.resolve(result);
+                    })
+                    .error(function(data, status) {
+                        deferred.reject(status);
+                    });
+
+                return deferred.promise;
+            },
+
             fetchAll: function() {
-                return sprints;
+                return this.fakeCall(sprints);
             },
 
             getSprint: function(sprintId) {
-                var deferred = $q.defer();
-
-                // Simulate a latency
-                $http.get('https://cors-test.appspot.com/test')
-                    .success(function(data, status) {
-                        for (var i = 0, len = sprints.length; i < len; i++) {
-                            if (sprints[i].id === sprintId) {
-                                deferred.resolve(sprints[i]);
-                            }
+                var fct = function(sprintId) {
+                    for (var i = 0, len = sprints.length; i < len; i++) {
+                        if (sprints[i].id === sprintId) {
+                            return sprints[i];
                         }
-                    })
-                    .error(function(data, status) {
-                        deferred.reject(status);
-                    });
+                    }
+                };
 
-                return deferred.promise;
+                return this.fakeCall(fct(sprintId));
             },
 
-            saveStory: function(story) {
-                var deferred = $q.defer();
-
-                // Simulate a latency
-                $http.get('https://cors-test.appspot.com/test')
-                    .success(function(data, status) {
-                        deferred.resolve(getNextStoryId());
-                    })
-                    .error(function(data, status) {
-                        deferred.reject(status);
-                    });
-
-                return deferred.promise;
-            },
-
-            deleteStory: function(story) {
-                // Simulate a latency
-                return $http.get('https://cors-test.appspot.com/test');
-            },
-
-            moveStoryToColumn: function(story, column, afterStory) {
-                // Simulate a latency
-                return $http.get('https://cors-test.appspot.com/test');
-            },
-
-            moveStoryToSprint: function(story, column) {
-                // Simulate a latency
-                return $http.get('https://cors-test.appspot.com/test');
-            },
-
-            getBacklog: function() {
-                var deferred = $q.defer();
-
-                // Simulate a latency
-                $http.get('https://cors-test.appspot.com/test')
-                    .success(function(data, status) {
-                        deferred.resolve(backlog);
-                    })
-                    .error(function(data, status) {
-                        deferred.reject(status);
-                    });
-
-                return deferred.promise;
+            newSprint: function() {
+                var newSprint = angular.copy(newSprintSkeleton)
+                newSprint.id = getNextStoryId();
+                return this.fakeCall(newSprint);
             },
         };
     }]);

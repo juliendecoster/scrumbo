@@ -7,6 +7,8 @@ angular.module('scrumbo', [
   'scrumbo.sprintboard',
   'scrumbo.planningboard',
   'scrumbo.sprintServices',
+  'scrumbo.storyServices',
+  'scrumbo.backlogServices',
   // 'focus',
   // 'myApp.view2',
   // 'myApp.version'

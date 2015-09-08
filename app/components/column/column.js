@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('scrumbo').directive('column', function(Sprint) {
+angular.module('scrumbo').directive('column', function(Sprint, Story) {
 
     return {
         templateUrl: 'components/column/column.html',
@@ -30,15 +30,14 @@ angular.module('scrumbo').directive('column', function(Sprint) {
             };
 
             $scope.deleteStory = function(story) {
-                Sprint.deleteStory(story)
-                .success(function() {
-                    removeStoryFromColumn(story);
-                })
-                .error(function() {
-                    // TODO : Show a nice error to the user
-                    console.log('Impossible to delete the story');
-                });
-                
+                Story.deleteStory(story).then(
+                    function() {
+                        removeStoryFromColumn(story);
+                    },
+                    function(reason) {
+                         // TODO : Show a nice error to the user
+                        console.log('Impossible to delete the story:' + reason);
+                    });
             };
 
             var moveStoryToColumn = function(story, column, afterStory) {
@@ -61,15 +60,15 @@ angular.module('scrumbo').directive('column', function(Sprint) {
                     }
 
                     // Finally do the call to the server
-                    Sprint.moveStoryToColumn(story, column, afterStory)
-                    .success(function() {
-                        
-                    })
-                    .error(function() {
-                        // TODO : Show a nice error to the user
-                        $scope.column = columnCopy; // Restore the backup state
-                        console.log('Impossible to save the story');
-                    });
+                    Story.moveStoryToColumn(story, column, afterStory).then(
+                        function(result) {
+
+                        },
+                        function(reason) {
+                            // TODO : Show a nice error to the user
+                            $scope.column = columnCopy; // Restore the backup state
+                            console.log('Impossible to save the story:' + reason);
+                        });
                 }
             };
 
