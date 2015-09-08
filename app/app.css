@@ -44,6 +44,14 @@ footer {
     background-color: #ccc;
 }
 
+.white-bg {
+    background-color: white;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
 /* Menu */
 .menu {
     float: left;
@@ -82,4 +90,26 @@ footer {
     font-weight: normal;
     font-size: 0.7em;
     color: #999;
+}
+
+/* Form */
+input[type='submit'] {
+    display: inline-block;
+    padding: 5px 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9em;
+    border: 0;
+}
+
+input[type='text'] {
+    border: 0;
+    border-bottom: 1px solid #999;
+    background-color: rgba(0, 0, 0, 0);
+    color: #666;
+    font-size: 0.9em;
+}
+
+input:focus {
+    outline: none;
 }

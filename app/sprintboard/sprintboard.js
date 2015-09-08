@@ -23,4 +23,12 @@ function($rootScope, $scope, $routeParams, Sprint) {
             // TODO : Show a nice error to the user
             console.log('Impossible to get the story');
         });
+
+    $scope.editSprint = function() {
+        $scope.sprint.editing = true;
+    };
+
+    $scope.saveSprint = function() {
+        $scope.sprint.editing = false;
+    }
 }]);

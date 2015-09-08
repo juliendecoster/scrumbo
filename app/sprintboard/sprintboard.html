@@ -1,5 +1,18 @@
 <div class="action-bar">
-    <h3 class="sprint-title">{{ sprint.title }} <span class="dates">From the {{ sprint.startDate }} to the {{ sprint.endDate }}</span></h3>
+    <form ng-show="sprint.editing" ng-submit="saveSprint()">
+            <input type="text" ng-model="sprint.title" focus="sprint.editing">
+            <span class="dates">
+                from the <input type="text" ng-model="sprint.startDate"> 
+                to the <input type="text" ng-model="sprint.endDate">
+            </span>
+            <input type="submit" value="Save" class="green-bg">
+    </form>
+
+    <h3 class="sprint-title" ng-hide="sprint.editing">
+        {{ sprint.title }} 
+        <span class="dates">From the {{ sprint.startDate }} to the {{ sprint.endDate }}</span>
+        <a ng-click="sprint.editing = true" class="edit">edit</a>
+    </h3>
 </div>
 
 <div class="sprintboard">

@@ -41,3 +41,11 @@
     margin: 15px 15px 5px 0px;
     padding: 25px;
 }
+
+.sprint .archive {
+    float: right;
+    font-size: 0.7em;
+    color: #999;
+    cursor: pointer;
+    text-decoration: none;
+}

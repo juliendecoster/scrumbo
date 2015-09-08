@@ -8,3 +8,10 @@
     height: 5px;
     border-radius: 5px;
 }
+
+.action-bar .edit {
+    color: #67c2ef;
+    text-decoration: none;
+    font-size: 0.6em;
+    cursor: pointer;
+}

@@ -34,7 +34,11 @@ angular.module('scrumbo').directive('sprintcard', function(Sprint) {
                 }
             };
 
-            $scope.backlog_count = function() {
+            $scope.createSprint = function() {
+                $scope.sprint.creating = false;
+            };
+
+            $scope.backlogCount = function() {
                 return $scope.sprint.columns[0].stories.length;
             };
 

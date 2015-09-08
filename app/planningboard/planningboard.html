@@ -7,7 +7,13 @@
         <div column data-set="backlog"></div>
     </div>
 
-    <a ng-repeat="sprint in sprints" ng-href="#sprintboard/{{ sprint.id }}">
-        <div sprintcard data-set="sprint"></div>
-    </a>
+    <div class="sprints">
+        <div ng-repeat="sprint in sprints">
+            <div sprintcard data-set="sprint"></div>
+        </div>
+
+        <div class="sprint new-sprint" ng-click="newSprint()">
+            <h3>New Sprint</h3>
+        </div>
+    </div>
 </div>

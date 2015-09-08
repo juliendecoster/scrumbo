@@ -24,4 +24,10 @@ angular.module('scrumbo.planningboard', ['ngRoute'])
             // TODO : Show a nice error to the user
             console.log('Impossible to get the story');
         });
+
+    $scope.newSprint = function() {
+        var newSprint = Sprint.newSprint();
+        newSprint.creating = true;
+        $scope.sprints.splice($scope.sprints.length, 0, newSprint);
+    };
 }]);

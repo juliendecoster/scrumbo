@@ -11,6 +11,8 @@ angular.module('scrumbo')
         $timeout(function() {
             element.addClass(dragStyle);
         }, 100);
+        event.dataTransfer.setData("id", event.target.id);
+        event.dataTransfer.effectAllowed = 'move';
     }
 
     function dragEnd(event, element, dragStyle) {
@@ -47,6 +49,7 @@ angular.module('scrumbo')
     }
 
     function dragLeave(event, element, dropStyle) {
+        event.preventDefault();
         element.removeClass(dropStyle);
     }
 

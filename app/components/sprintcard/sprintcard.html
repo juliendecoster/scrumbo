@@ -1,5 +1,23 @@
-<div class="sprint orange-bg"  drop="sprint" drop-style="sprint-drop">
-    <p class="title">{{ sprint.title }}</p>
-    <p class="dates">From {{ sprint.startDate }} to {{ sprint.endDate }}</p>
-    <p><span class="backlog">{{ backlog_count() }}</span> stories in backlog</p>
+<div ng-hide="sprint.creating">
+    <a href="#sprintboard/{{ sprint.id }}">
+        <div class="sprint orange-bg"  drop="sprint" drop-style="sprint-drop">
+            <p class="title">{{ sprint.title }}</p>
+            <p class="dates">From {{ sprint.startDate }} to {{ sprint.endDate }}</p>
+            <p><span class="backlog">{{ backlogCount() }}</span> stories in backlog</p>
+        </div>
+    </a>
+</div>
+
+<!-- Editing mode -->
+<div ng-show="sprint.creating">
+    <div class="sprint white-bg">
+        <a href="#" class="archive">X</a>
+        <form ng-submit="createSprint()">
+            <input type="text" class="mb20" ng-model="sprint.title" focus="sprint.creating">
+            <input type="text" class="mb20" ng-model="sprint.startDate">
+            <input type="text" class="mb20" ng-model="sprint.endDate">
+            <br/>
+            <input type="submit" value="Create" class="green-bg">
+        </form>
+    </div>
 </div>
