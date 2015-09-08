@@ -282,6 +282,10 @@ angular.module('scrumbo.sprintServices', [])
                 return this.fakeCall(newSprint);
             },
 
+            createSprint: function() {
+                return this.fakeCall(true);
+            },
+
             archiveSprint: function() {
                 return this.fakeCall(true);
             },

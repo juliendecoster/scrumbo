@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('scrumbo').directive('sprintcard', function(Story) {
+angular.module('scrumbo').directive('sprintcard', function(Sprint, Story) {
 
     return {
         templateUrl: 'components/sprintcard/sprintcard.html',
@@ -35,7 +35,14 @@ angular.module('scrumbo').directive('sprintcard', function(Story) {
             };
 
             $scope.createSprint = function() {
-                $scope.sprint.creating = false;
+                Sprint.createSprint().then(
+                    function(result) {
+                        $scope.sprint.creating = false;
+                    },
+                    function(reason) {
+                        // TODO : Show a nice error to the user
+                         console.log('Impossible to create the sprint:' + reason);
+                    });
             };
 
             $scope.backlogCount = function() {
