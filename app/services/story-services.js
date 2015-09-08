@@ -16,7 +16,7 @@ angular.module('scrumbo.storyServices', [])
                 var deferred = $q.defer();
 
                 // Simulate a latency
-                $http.get('https://cors-test.appspot.com/test')
+                $http.get('https://scrumbo.firebaseapp.com/ping.json')
                     .success(function(data, status) {
                         deferred.resolve(result);
                     })
