@@ -1,0 +1,14 @@
+.planningboard .column {
+    margin-right: 20px;
+}
+
+.new-sprint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 292px;
+    height: 132px;
+    border: 4px dashed #333;
+    color: #999;
+    cursor: pointer;
+}

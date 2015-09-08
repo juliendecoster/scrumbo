@@ -1,0 +1,43 @@
+.sprints {
+    overflow: auto;
+}
+
+.sprint {
+    margin: 20px 20px 10px 5px;
+    padding: 20px;
+    float: left;
+    width: 300px;
+    height: 140px;
+    color: white;
+    transition: all 0.2s;
+}
+
+.sprint p {
+     /*Don't interfer with the drag & drop */
+    pointer-events: none;
+}
+
+.sprint.sprint-drop {
+    margin: 15px 15px 5px 0px;
+    padding: 25px;
+}
+
+.sprint .title {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.sprint .dates {
+    margin-top: 0;
+    font-size: 0.8em
+}
+
+.sprint .backlog {
+    font-size: 4em;
+}
+
+.sprint:hover {
+    margin: 15px 15px 5px 0px;
+    padding: 25px;
+}

@@ -20,6 +20,10 @@ header .logo {
     float: left;
 }
 
+footer {
+    margin-top: 100px;
+}
+
 .blue-bg {
     background-color: #67c2ef;
 }
@@ -34,6 +38,10 @@ header .logo {
 
 .green-bg {
     background-color: #79c447;
+}
+
+.gray-bg {
+    background-color: #ccc;
 }
 
 /* Menu */
@@ -74,159 +82,4 @@ header .logo {
     font-weight: normal;
     font-size: 0.7em;
     color: #999;
-}
-
-/* Sprintplanning */
-.planningboard .column {
-    margin-right: 20px;
-}
-
-.sprint {
-    margin-top: 20px;
-    margin-right: 10px;
-    margin-left: 10px;
-    padding: 20px;
-    float: left;
-    width: 300px;
-    height: 140px;
-    color: white;
-    transition: all 0.2s;
-}
-
-.sprint p {
-    pointer-events: none;
-}
-
-.sprint.sprint-drop {
-    margin-left: 5px;
-    margin-right: 5px;
-    padding: 25px;
-}
-
-.sprint .title {
-    margin-top: 0;
-    margin-bottom: 5px;
-    font-size: 1.2em;
-}
-
-.sprint .dates {
-    margin-top: 0;
-    font-size: 0.8em
-}
-
-.sprint .backlog {
-    font-size: 4em;
-}
-
-.sprint:hover {
-    margin-left: 5px;
-    margin-right: 5px;
-    padding: 25px;
-}
-
-/* Sprintboard */
-.sprintboard {
-}
-
-.dropzone.over {
-    background-color: #333;
-    height: 50px;
-}
-
-.dropzone {
-    margin: 5px 10px;
-    height: 5px;
-    border-radius: 5px;
-}
-
-/* Column */
-.column {
-    margin-top: 20px;
-    float: left;
-    margin-left: 20px;
-    width: 270px;
-    background-color: #f5f5f5;
-}
-
-.column.column-drop {
-    background-color: #333;
-}
-
-.column .header {
-    padding: 10px;
-    color: white;
-    font-size: 0.8em;
-    font-weight: bold;
-}
-
-.column .add {
-    font-size: 0.8em;
-    cursor: pointer;
-    color: #999;
-    margin: 10px;
-}
-
-.column .story {
-    margin: 0 10px;
-    padding: 10px;
-    background-color: white;
-    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.1);
-}
-
-.column .drag-story {
-    display: none;
-}
-
-.column .story:hover .edit {
-    opacity: 1;
-}
-
-.column .story .ref {
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
-    font-size: 0.8em;
-    color: #414141;
-}
-
-.column .story .title {
-    margin: 0;
-    padding: 0;
-    font-size: 0.8em;
-    color: #999;
-}
-
-.column .story .edit {
-    float: right;
-    opacity: 0;
-    font-size: 0.7em;
-    color: #999;
-    cursor: pointer;
-}
-
-.column .story form {
-    color: #999;
-    font-size: 0.8em;
-}
-
-.column .story form textarea {
-    width: 100%;
-    height: 60px;
-    border: 1px solid #eee;
-    color: #999;
-}
-
-.column .story form button {
-    display: inline-block;
-    padding: 5px 10px;
-    border: 1px solid #18ab29;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.column .story form a {
-    cursor: pointer;
-    color: #999;
-    text-decoration: none;
 }

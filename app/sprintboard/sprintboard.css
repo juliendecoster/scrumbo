@@ -1,0 +1,10 @@
+.dropzone.over {
+    background-color: #333;
+    height: 50px;
+}
+
+.dropzone {
+    margin: 5px 10px;
+    height: 5px;
+    border-radius: 5px;
+}
